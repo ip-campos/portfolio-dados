@@ -11,22 +11,6 @@ Os projetos foram criados com o objetivo de praticar diferentes etapas de uma an
 | Segmentação de Clientes | Segmentação de clientes de um varejo online a partir do comportamento de compra. | RFM, K-Means, análise exploratória e clustering | [Online-Retail-II](https://archive.ics.uci.edu/dataset/502/online+retail+ii) | Concluído |
 
 ## Estrutura do repositório
-
-```text
-data-science-portfolio/
-├── README.md
-├── customer-segmentation/
-│   ├── README.md
-│   ├── online_retail.ipynb
-│   └── data/
-├── employee-turnover/
-├── customer-churn/
-├── fraud-detection/
-├── ab-testing/
-├── forecasting/
-└── dashboard/
-```
-
 Cada pasta contém o notebook ou código principal do projeto, um README com a descrição da análise e, quando aplicável, instruções para obtenção dos dados.
 
 ## Sobre mim
