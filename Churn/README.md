@@ -6,20 +6,20 @@ Este projeto apresenta uma comparação entre modelos de Machine Learning para p
 - **Regressão Logística**;
 - **XGBoost**.
 
-Eles serão comparados entre si em métricas como acurácia, recall e precisão. Além disso, é proposto um modelo simplificado de perda de receita para comparar a eficiência financeira da implementação do modelo.
+Os modelos foram comparados entre si em métricas como acurácia, recall e precisão. Além disso, é proposto um modelo simplificado de perda de receita para comparar a economia de receita da implementação do modelo no cenário simulado.
 
 ## Conjunto de dados
 
 Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente na plataforma Kaggle.
 
 - **Fonte:** [Churn Modelling](https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data)
-- **Contexto:** Detalhes do clientes de um banco e uma variável binária que indica se o cliente fechou sua conta com o banco ou não.
+- **Contexto:** Informações dos clientes de um banco e uma variável binária que indica se o cliente fechou sua conta com o banco ou não.
 
 **Descrição dos dados:**
 
 | Variável | Descrição |
 | :------: | :-------: |
-| Customer ID | Número de identificação único do cliente |
+| CustomerId | Número de identificação único do cliente |
 | Surname | Sobrenome do cliente |
 | CreditScore | Pontuação de crédito do cliente |
 | Geography | País de origem do cliente |
@@ -31,7 +31,7 @@ Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente
 | HasCrCard | Indicador binário se o cliente tem cartão de crédito no banco ou não |
 | IsActiveMember | Indicador binário se o cliente é um membro ativo do banco ou não |
 | EstimatedSalary | Salário estimado do cliente |
-| Exited | Indicador binário se o cliente terminou sua conta ou não |
+| Exited | Indicador binário se o cliente encerrou sua conta ou não |
 
 ## Tecnologias utilizadas
 
