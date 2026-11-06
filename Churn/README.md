@@ -18,7 +18,7 @@ Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente
 **Descrição dos dados:**
 
 | Variável | Descrição |
-| :------: | :-------: |
+| :------: | :------- |
 | CustomerId | Número de identificação único do cliente |
 | Surname | Sobrenome do cliente |
 | CreditScore | Pontuação de crédito do cliente |

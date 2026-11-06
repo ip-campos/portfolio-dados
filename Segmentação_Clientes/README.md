@@ -21,7 +21,7 @@ Foi utilizado o conjunto de dados Online Retail II, disponibilizado pela UCI Mac
 ## Descrição dos dados
 
 | Variável | Descrição |
-|---|---|
+| :---: | :--- |
 | `Invoice` | Código de identificação da transação. Códigos iniciados por `C` representam cancelamentos. |
 | `StockCode` | Código de identificação do produto. |
 | `Description` | Descrição do produto. |
