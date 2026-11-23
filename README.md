@@ -10,14 +10,14 @@ Os projetos foram criados com o objetivo de praticar diferentes etapas de uma an
 |---|---|---|---|---|
 | Segmentação de Clientes | Segmentação de clientes de um varejo online a partir do comportamento de compra. | RFM, K-Means, análise exploratória e clustering | [Online-Retail-II](https://archive.ics.uci.edu/dataset/502/online+retail+ii) | Concluído |
 | Churn | Predição de Churn de clientes de um banco a partir dos indicadores analisados com Machine Learning | Machine Learning, Random Forest, Regressão Logística, XGBoost | [Churn Modelling](https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data) | Concluído |
-| Predição de Taxa de Juros | Predição de taxa de juros em financiamentos imobiliários no estado da Carolina do Norte - EUA (Dados públicos HMDA) | [Taxa de Juros](https://ffiec.cfpb.gov/) | Em andamento |
+| Predição de Taxa de Juros | Predição de taxa de juros em financiamentos imobiliários no estado da Carolina do Norte - EUA (Dados públicos HMDA) | [Taxa de Juros](https://ffiec.cfpb.gov/) | Concluído |
 
 ## Estrutura do repositório
 Cada pasta contém o notebook ou código principal do projeto, um README com a descrição da análise e, quando aplicável, instruções para obtenção dos dados.
 
 ## Sobre mim
 
-Sou Ian Campos, químico e mestrando em Físico-Química, com experiência em pesquisa científica, programação em Python e análise quantitativa de dados.
+Sou Ian Campos, químico e mestre em Físico-Química, com experiência em pesquisa científica, programação em Python e análise quantitativa de dados.
 
 Durante minha formação, desenvolvi rotinas para tratamento, visualização e análise de dados experimentais. Atualmente, estou ampliando minha experiência em análise e ciência de dados por meio de projetos aplicados a diferentes problemas de negócio.
 
