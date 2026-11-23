@@ -40,3 +40,4 @@ Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente
 - Matplotlib
 - Seaborn
 - Scikit-Learn
+- XGBoost
