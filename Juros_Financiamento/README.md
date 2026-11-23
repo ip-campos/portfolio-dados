@@ -1,37 +1,46 @@
 # Predição de Churn com Machine Learning
 ## Sobre o projeto
 
-Este projeto apresenta uma comparação entre modelos de Machine Learning para predição de churn de clientes de um banco. Os modelos escolhidos foram:
-- **Random Forest**;
-- **Regressão Logística**;
-- **XGBoost**.
+Este projeto desenvolve e compara modelos de XGBoost e regressão linear para estimar taxas de juros a partir das características de financiamentos imobiliários.
 
-Os modelos foram comparados entre si em métricas como acurácia, recall e precisão. Além disso, é proposto um modelo simplificado de perda de receita para comparar a economia de receita da implementação do modelo no cenário simulado.
+O trabalho inclui limpeza dos dados, análise exploratória, pré-processamento em pipelines, otimização de hiperparâmetros e avaliação por validação cruzada e conjunto de teste.
+
+O projeto também servirá como base para o desenvolvimento de uma aplicação end-to-end.
 
 ## Conjunto de dados
 
-Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente na plataforma Kaggle.
+Foi analisado um conjunto de dados de solicitações e operações de financiamento imobiliário referentes a imóveis localizados na Carolina do Norte, Estados Unidos, em 2025. O conjunto foi coletado a partir da Home Mortgage Disclosure Act (HMDA) e disponibilizados publicamente na plataforma HMDA do FFIEC.
 
-- **Fonte:** [Churn Modelling](https://www.kaggle.com/datasets/shrutimechlearn/churn-modelling/data)
-- **Contexto:** Informações dos clientes de um banco e uma variável binária que indica se o cliente fechou sua conta com o banco ou não.
+- **Fonte:** [HMDA](https://ffiec.cfpb.gov/)
+- **Contexto:** Informações de solicitações e operações de financiamento imobiliário referentes a imóveis localizados na Carolina do Norte, Estados Unidos, em 2025 e a respectiva taxa de juros associada a essa operação.
 
-**Descrição dos dados:**
-
-| Variável | Descrição |
-| :------: | :-------: |
-| CustomerId | Número de identificação único do cliente |
-| Surname | Sobrenome do cliente |
-| CreditScore | Pontuação de crédito do cliente |
-| Geography | País de origem do cliente |
-| Gender | Gênero do cliente |
-| Age | Idade do cliente |
-| Tenure | Número de anos que o cliente utiliza os serviços do banco |
-| Balance | Saldo total da conta do cliente |
-| NumOfProducts | Número de produtos do banco que o cliente utiliza |
-| HasCrCard | Indicador binário se o cliente tem cartão de crédito no banco ou não |
-| IsActiveMember | Indicador binário se o cliente é um membro ativo do banco ou não |
-| EstimatedSalary | Salário estimado do cliente |
-| Exited | Indicador binário se o cliente encerrou sua conta ou não |
+**Descrição dos dados:** O conjunto de dados completo, os códigos das categorias e os valores especiais podem ser consultados no [dicionário oficial de dados da HMDA](https://ffiec.cfpb.gov/documentation/publications/loan-level-datasets/lar-data-fields).
+| Variável | Descrição | Tipo / Unidade |
+| :---: | :--- | :--- |
+| `interest_rate` | Taxa de juros anual do financiamento. **Variável alvo do modelo.** | Numérica — % |
+| `loan_amount` | Valor do financiamento. | Numérica — US$ |
+| `income` | Renda bruta anual considerada na decisão de crédito. | Numérica — milhares de US$ |
+| `property_value` | Valor do imóvel considerado na decisão de crédito. | Numérica — US$ |
+| `loan_to_value_ratio` | Relação entre o total das dívidas garantidas pelo imóvel e seu valor (CLTV). | Numérica — % |
+| `loan_term` | Prazo contratual do financiamento. | Numérica — meses |
+| `loan_type` | Modalidade do financiamento: convencional ou com seguro/garantia governamental. | Categórica |
+| `loan_purpose` | Finalidade do financiamento, como compra, reforma ou refinanciamento. | Categórica |
+| `lien_status` | Prioridade da garantia hipotecária: primeiro grau ou subordinada. | Categórica |
+| `occupancy_type` | Uso do imóvel: residência principal, segunda residência ou investimento. | Categórica |
+| `construction_method` | Método de construção: no local ou habitação manufaturada. | Categórica |
+| `total_units` | Quantidade de unidades residenciais, apresentada em valores individuais ou faixas. | Categórica ordinal |
+| `conforming_loan_limit` | Enquadramento do valor financiado no limite para financiamentos conformes. | Categórica |
+| `business_or_commercial_purpose` | Indica se a operação tem finalidade predominantemente empresarial ou comercial. | Categórica |
+| `intro_rate_period` | Prazo até a primeira possibilidade de alteração da taxa de juros. | Numérica — meses |
+| `balloon_payment` | Indica pagamento balão: parcela substancialmente maior que as demais. | Categórica |
+| `interest_only_payment` | Indica a previsão contratual de pagamentos apenas de juros. | Categórica |
+| `negative_amortization` | Indica possibilidade de aumento do saldo devedor pela incorporação de juros não pagos. | Categórica |
+| `other_nonamortizing_features` | Indica outras condições contratuais que permitem pagamentos sem amortização integral. | Categórica |
+| `prepayment_penalty_term` | Período de vigência da penalidade por pagamento antecipado. | Numérica — meses |
+| `open-end_line_of_credit` | Indica se a operação é uma linha de crédito aberta (rotativa). | Categórica |
+| `reverse_mortgage` | Indica se a operação é uma hipoteca reversa. | Categórica |
+| `county_code` | Código FIPS de estado e condado do imóvel. | Categórica |
+| `lei` | Identificador da instituição financeira (Legal Entity Identifier). | Categórica |
 
 ## Tecnologias utilizadas
 
@@ -40,30 +49,4 @@ Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente
 - Matplotlib
 - Seaborn
 - Scikit-Learn
-
-| Variável | Significado | Tratamento sugerido |
-|---|---|---|
-| **`interest_rate`** | Taxa de juros anual | **Alvo**, em percentual |
-| `loan_amount` | Valor do financiamento | Numérica, em USD |
-| `income` | Renda bruta anual considerada na análise | Numérica, em **milhares de USD** |
-| `property_value` | Valor do imóvel utilizado na decisão | Numérica, em USD |
-| `loan_to_value_ratio` | Relação entre dívidas garantidas pelo imóvel e seu valor | Numérica, em percentual |
-| `loan_term` | Prazo do financiamento | Numérica, em meses |
-| `loan_type` | Tipo de financiamento/garantia governamental | Categórica |
-| `loan_purpose` | Compra, reforma, refinanciamento etc. | Categórica |
-| `lien_status` | Prioridade da garantia hipotecária | Categórica |
-| `occupancy_type` | Residência principal, segunda residência ou investimento | Categórica |
-| `construction_method` | Construção no local ou habitação manufaturada | Categórica |
-| `total_units` | Número de unidades residenciais | Categórica, pois também contém faixas |
-| `conforming_loan_limit` | Enquadramento no limite de valor aplicável às GSEs | Categórica |
-
-| Campos ou grupos | Minha recomendação inicial |
-|---|---|
-| `county_code`, `lei` e variáveis econômicas da região | Testar posteriormente, verificando o ganho em validação |
-| `activity_year` | Guardar para separar períodos e avaliar estabilidade temporal |
-| `action_taken` | Usar para selecionar contratos concedidos; retirar de `X` após o filtro |
-| `rate_spread`, `hoepa_status` | Excluir: podem revelar condições de preço ligadas ao alvo |
-| `discount_points`, `lender_credits`, custos e encargos | Excluir da primeira versão: são negociados junto com as condições de preço |
-| `purchaser_type`, `denial_reason-*` | Excluir: informações posteriores à etapa em que queremos prever |
-| Raça, etnia, sexo e idade | Reservar para comparar cobertura e erros entre grupos |
-| `derived_loan_product_type`, `derived_dwelling_category` | Evitar duplicação com os campos que originaram essas categorias |
+- XGBoost
