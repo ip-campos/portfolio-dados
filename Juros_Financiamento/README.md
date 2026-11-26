@@ -42,6 +42,19 @@ Foi analisado um conjunto de dados de solicitações e operações de financiame
 | `county_code` | Código FIPS de estado e condado do imóvel. | Categórica |
 | `lei` | Identificador da instituição financeira (Legal Entity Identifier). | Categórica |
 
+## Resultados
+Os modelos foram comparados com uma referência que prevê a mediana da taxa de juros do conjunto de treinamento.
+
+| Métrica no conjunto de teste | Referência | XGBoost | Regressão linear |
+| :--------------------------: | :--------: | :-----: | :--------------: |
+| MAE (p.p.) | 0,92 | 0,38 | 0,73 |
+| RMSE (p.p.) | 1,52 | 0,57 | 1,17 | 
+| R² | −0,01 | 0,86 | 0,40 |
+
+O XGBoost apresentou o melhor desempenho, com erro absoluto médio de aproximadamente 0,38 ponto percentual, sendo escolhido para a próxima etapa do projeto.
+
+Os resultados correspondem ao recorte analisado e à divisão de dados adotada; o desempenho em outros períodos ou regiões ainda não foi avaliado.
+
 ## Tecnologias utilizadas
 
 - Python

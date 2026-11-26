@@ -33,6 +33,21 @@ Foi utilizado o conjunto de dados Churn Modelling, disponibilizado gratuitamente
 | EstimatedSalary | Salário estimado do cliente |
 | Exited | Indicador binário se o cliente encerrou sua conta ou não |
 
+## Resultados
+
+Os modelos foram avaliados em um conjunto de teste com 2.000 clientes, considerando o desempenho preditivo e uma simulação de economia com ações de retenção.
+
+| Métrica | Random Forest | Regressão logística | XGBoost |
+| :-----: | :-----------: | :-----------------: | :-----: |
+| Acurácia | 80,4% | 71,5% | 78,8% |
+| Recall da classe churn | 74,4% | 70,5% | 77,9% |
+| AUC | 0,86 | 0,78 | 0,86 |
+| Economia simulada por cliente | R$ 9,24 | R$ 6,98 | R$ 9,34 |
+
+O XGBoost apresentou o maior recall e a maior economia simulada, com resultados próximos aos do Random Forest, que obteve maior acurácia.
+
+A simulação considera perda mensal de R$ 100 por cliente que sai, desconto de 20% para os clientes sinalizados e retenção de todos os que receberem a oferta. Os valores representam um cenário hipotético, sem validação do impacto em uma campanha real.
+
 ## Tecnologias utilizadas
 
 - Python

@@ -31,6 +31,22 @@ Foi utilizado o conjunto de dados Online Retail II, disponibilizado pela UCI Mac
 | `Customer ID` | Código de identificação do cliente. |
 | `Country` | País de residência do cliente. |
 
+## Resultados
+
+A análise utilizou indicadores RFM — recência, frequência e valor monetário — de 5.868 clientes. O K-Means agrupou 5.178 clientes em quatro clusters. Outros 690 clientes, com valores extremos de gasto ou frequência, foram organizados em três grupos adicionais por regras.
+
+| Segmento | Número de clientes |
+| :------: | :----------------: |
+| Baixo engajamento | 1.888 |
+| Leais | 534 |
+| Alto potencial |1.071 |
+| Inativos | 1.685 |
+| Grandes compradores | 265 |
+| Superfrequentes | 64 |
+| Campeões | 361 |
+
+Os perfis identificados permitiram propor ações específicas de retenção, reativação, incentivo à recompra e atendimento personalizado. A separação dos clientes com valores extremos preservou sua análise sem influenciar diretamente a formação dos quatro clusters.
+
 ## Tecnologias utilizadas
 
 - Python
